@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_modular_example/app/categoria/model/categoria_controller.dart';
 
 // class CategoriaPage extends StatelessWidget {
 //   const CategoriaPage({Key? key}) : super(key: key);
@@ -35,8 +36,17 @@ class _CategoriaPageState extends State<CategoriaPage> {
       appBar: AppBar(
         title: const Text('CATEGORIA'),
       ),
-      body: Center(
-        child: Text(widget.categoria ?? ''),
+      body: Column(
+        children: [
+          TextButton(
+              onPressed: () {
+                var controller = Modular.get<CategoriaController>();
+              },
+              child: Text('lol')),
+          Center(
+            child: Text(widget.categoria ?? ''),
+          ),
+        ],
       ),
     );
   }
