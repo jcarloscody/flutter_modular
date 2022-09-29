@@ -2,6 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_example/app/categoria/categoria_page.dart';
 import 'package:flutter_modular_example/app/categoria/model/categoria_controller.dart';
 import 'package:flutter_modular_example/app/categoria/model/preco_model.dart';
+import 'package:flutter_modular_example/app/categoria/model/x.dart';
 import 'package:flutter_modular_example/app/produto/produto_module.dart';
 
 class CategoriaModule extends Module {
@@ -17,7 +18,15 @@ class CategoriaModule extends Module {
 
   @override
   List<Bind<Object>> get binds => [
-        Bind((i) => CategoriaController(i()), isLazy: true, isSingleton: true),
-        Bind.lazySingleton((i) => PrecoModel()),
+        Bind(
+          (i) => CategoriaController(i()),
+          isLazy: true,
+          isSingleton: true,
+        ),
+        Bind.lazySingleton(
+          (i) => PrecoModel(x: i.get()),
+          export: true,
+        ),
+        Bind.lazySingleton((i) => X(), export: true),
       ];
 }
