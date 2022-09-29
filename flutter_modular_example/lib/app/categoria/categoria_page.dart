@@ -29,7 +29,8 @@ class CategoriaPage extends StatefulWidget {
   State<CategoriaPage> createState() => _CategoriaPageState();
 }
 
-class _CategoriaPageState extends State<CategoriaPage> {
+class _CategoriaPageState
+    extends ModularState<CategoriaPage, CategoriaController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +41,7 @@ class _CategoriaPageState extends State<CategoriaPage> {
         children: [
           TextButton(
               onPressed: () {
-                var controller = Modular.get<CategoriaController>();
+                print("----- ${controller.precoModel}");
               },
               child: Text('lol')),
           Center(
